@@ -12,6 +12,7 @@ export default function page({ params }) {
 
   useEffect(() => {
     const fetchData = async () => {
+      
       await axios
         .get(`http://localhost:3000/movies/${params.id}`)
         .then((data) => {
