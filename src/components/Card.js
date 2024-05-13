@@ -11,7 +11,7 @@ export default function Card({ movie, Delete}) {
     }
 
   return (
-    <div className=" mt-10 text-lg text-center border border-[#FDE5D4] w-11/12 h-4/5 flex flex-col items-center overflow-y-hidden"
+    <div className="text-center flex flex-col items-center overflow-y-hidden"
     >
       <Link href={`/movie/${movie.id}`}>
       <img
@@ -23,10 +23,10 @@ export default function Card({ movie, Delete}) {
       /></Link>
       
       <h2>{movie.title}</h2>
-      <div className="mb-20 ">
+      <div className="">
         <p className="">runtime: {movie.runtime}</p>
         <p className=""> year:  {movie.year}</p>
-        <div className=" flex justify-end space-x-3 ">
+        <div className=" flex justify-end">
         <button className="  hover:text-red-500" onClick={(event)=> Delete(movie.id, event)}>D</button>
         <Link href={`/movie/update/${movie.id}`} className="hover:text-red-500" >U</Link>
         </div>
