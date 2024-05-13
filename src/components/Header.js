@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
+import SearchBox from '../components/SearchBox'
 //import Anchor from '../components/Anchor'
 
 export default function Header() {
@@ -8,10 +9,7 @@ export default function Header() {
     <div className="flex justify-between items-center">
     <Link href= "/category">Genres</Link>
     <Link href="/">Home</Link>
-      <input type="text" className="rounded-md bg-[#FDE5D4]" />
-      
-      {/* sidebar */}
-      
+      <SearchBox></SearchBox>
     </div>
   </div>
   )
