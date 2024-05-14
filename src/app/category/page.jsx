@@ -16,7 +16,7 @@ export default function CategoryList() {
     <div>
         
         <div>
-            {genres.map((genre)=>(<div> <Link href={`/category/${genre}`}>{genre}</Link></div>  ))}
+            {genres.map((genre, index)=>(<div key={index}> <Link  href={`/category/${genre}`}>{genre}</Link></div>  ))}
         </div>
     </div>
   )

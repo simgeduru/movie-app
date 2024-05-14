@@ -11,7 +11,7 @@ export default function Card({ movie, Delete}) {
     }
 
   return (
-    <div className="text-center flex flex-col items-center overflow-y-hidden"
+    <div className="text-center flex flex-col items-center"
     >
       <Link href={`/movie/${movie.id}`}>
       <img

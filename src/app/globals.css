@@ -2,10 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-div{
-  color: #D6CC99;
- 
-}
+
 #gridItem{
   border:1cm;
   border:#D6CC99;

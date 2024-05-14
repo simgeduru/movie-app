@@ -4,6 +4,7 @@ import "./globals.css";
 import Card from "../components/Card";
 import axios from "axios";
 import Link from "next/link";
+import Background from "../components/Background";
 
 export default function Home() {
   const [movies, setMovies] = useState([]);
@@ -30,18 +31,21 @@ export default function Home() {
 
   return (
     <div>
-      <div>
-        <h1 className="">Tüm Filmler</h1>
-        <h1>Genres</h1>
-      </div>
+      <Background></Background>
+      <div className="md:px-5">
+        <div className="">
+          <h1 className="">Tüm Filmler</h1>
+          <h1>Genres</h1>
+        </div>
 
-      {/* <Link href={"/newAdd"} className="rounded-md bg-[#FDE5D4] py-2 px-5">
+        {/* <Link href={"/newAdd"} className="rounded-md bg-[#FDE5D4] py-2 px-5">
         Ekle
       </Link> */}
-      <div className="grid grid-cols-4 gap-4 text-center place-items-center">
-        {movies.map((movie) => (
-          <Card key={movie.id} movie={movie} Delete={Delete}></Card>
-        ))}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 text-center place-items-center">
+          {movies.map((movie) => (
+            <Card key={movie.id} movie={movie} Delete={Delete}></Card>
+          ))}
+        </div>
       </div>
     </div>
   );

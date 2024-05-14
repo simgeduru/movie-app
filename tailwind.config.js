@@ -15,7 +15,17 @@ module.exports = {
       fontFamily: {
         'sedan': ["Sedan SC", "serif"],
         
+      },
+      colors: {
+        'bordo': '#9D0208',
+        'back': '#03071E',
+        'txt':'#FFBA08',
+        'txt2': '#F48C06'
+      },
+      height: {
+        '11/12': '90%',
       }
+      
     },
   },
   plugins: [],
