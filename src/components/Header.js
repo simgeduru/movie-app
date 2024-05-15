@@ -6,9 +6,9 @@ import SearchBox from '../components/SearchBox'
 export default function Header() {
   return (
     
-    <div className="flex justify-between items-center md:px-5  text-bordo">
+    <div className="flex justify-between items-center md:px-5  text-[#dc2f02]">
 {/*     <Link href= "/category">Genres</Link> */}
-    <Link href="/" className='  bold font-semibold  text-sm lg:text-[45px] tracking-widest'>Home</Link>
+    <Link href="/" className='font-black text-sm lg:text-[45px] tracking-widest'><span className='text-xl'>Movie</span><span className='text-white font-semibold'>App</span></Link>
       <SearchBox></SearchBox>
       
     </div>

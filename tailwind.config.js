@@ -13,19 +13,18 @@ module.exports = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       fontFamily: {
-        'sedan': ["Sedan SC", "serif"],
-        
+        sedan: ["Sedan SC", "serif"],
+        roboto: ["Roboto Serif", "serif"],
       },
       colors: {
-        'bordo': '#9D0208',
-        'back': '#03071E',
-        'txt':'#FFBA08',
-        'txt2': '#F48C06'
+        bordo: "#9D0208",
+        back: "#03071E",
+        txt: "#FFBA08",
+        txt2: "#F48C06",
       },
       height: {
-        '11/12': '90%',
-      }
-      
+        "11/12": "90%",
+      },
     },
   },
   plugins: [],
