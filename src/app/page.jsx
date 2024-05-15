@@ -33,15 +33,15 @@ export default function Home() {
     <div>
       <Background></Background>
       <div className="md:px-5">
+        <Link className="text-center" href={"/category"} >Genres</Link>
         <div className="">
-          <h1 className="">Tüm Filmler</h1>
-          <h1>Genres</h1>
+          <h1>Top Rated</h1>
         </div>
 
         {/* <Link href={"/newAdd"} className="rounded-md bg-[#FDE5D4] py-2 px-5">
         Ekle
       </Link> */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 text-center place-items-center">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-center place-items-center">
           {movies.map((movie) => (
             <Card key={movie.id} movie={movie} Delete={Delete}></Card>
           ))}

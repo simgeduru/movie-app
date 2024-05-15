@@ -14,7 +14,7 @@ export default function RootLayout({ children }) {
         <div className="h-full mt-5">
           <Header></Header>
           <div className="">
-            <div className="text-center">top rated films here</div>
+           
             <div>{children}</div>
           </div>
         </div>
