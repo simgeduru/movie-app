@@ -1,10 +1,19 @@
-import React from 'react'
-import brothers from "../../public/brothers.jpg";
+import React from "react";
+
 
 export default function Background() {
   return (
-    <div className="mt-5 left-0 right-0 opacity-85 bg-blend-overlay">
-    <img src={`${brothers.src}`} className="w-full"></img>
-  </div>
-  )
+    <div
+      class=""
+      style={{
+        backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.3), rgba(3, 7, 30, 1)), url(https://media.gq.com/photos/5d2e3ec3f5bac40008b06ee2/16:9/w_2560%2Cc_limit/Matrix.jpg)",
+        height: "470px",
+      backgroundPosition: "center",
+      backgroundSize:"cover"
+      }}
+    ></div>
+  );
 }
+
+
+

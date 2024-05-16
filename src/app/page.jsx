@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import "./globals.css";
 import Card from "../components/Card";
 import axios from "axios";
+import SearchBox from '../components/SearchBox'
+import Link from 'next/link'
 
 import Background from "../components/Background";
 
@@ -40,30 +42,26 @@ export default function Home() {
     };
     fetchGenres();
   }, []);
-/* 
-  const Delete = async (movieId, event) => {
-    try {
-      await axios.delete(`http://localhost:3000/movies/${movieId}`);
-      const newArray = movies.filter((movie) => movie.id != movieId);
-      setMovies(newArray);
-    } catch (error) {
-      console.log("silinemedi");
-    }
-  };
- */
+
   
   return (
     <div>
+       <div className="flex justify-between items-center md:px-5  text-[#dc2f02] mb-5 md:mb-10">
+
+    <Link href="/" className='font-black text-sm lg:text-[45px] tracking-widest'><span className='text-xl'>Movie</span><span className='text-white font-semibold'>App</span></Link>
+      <SearchBox MovieList ={movies}></SearchBox>
+      
+    </div>
       <Background></Background>
       <div className="md:px-5">
-        <div className=" overflow-x-scroll hover:overflow-x-scroll flex flex-row space-x-5  ">
+        <div id="genresScroll" className=" overflow-x-scroll hover:overflow-x-scroll flex flex-row space-x-5 mt-5 md:mt-10">
           {genres.map((genre, index) => (
             <button key={index} onClick={()=>{setGenreItem(genre)
               console.log("tıklandı");
             }}>{genre}</button>
           ))}
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-center place-items-center">
+        <div className=" mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 text-center place-items-center">
           {
             (movies.length>0) ?
           movies.map((movie) => (

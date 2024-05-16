@@ -1,6 +1,4 @@
-//import "./globals.css";
-import Header from "../components/Header";
-
+import "./globals.css";
 
 export const metadata = {
   title: "Movie App",
@@ -10,13 +8,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="">
-      <body className={"   bg-[#03071E] text-white"}>
+      <body className={"bg-[#03071E] text-white"}>
         <div className="h-full mt-5">
-          <Header></Header>
-          <div className="">
-           
-            <div>{children}</div>
-          </div>
+          <div>{children}</div>
         </div>
       </body>
     </html>
