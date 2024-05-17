@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import "./globals.css";
 
 export const metadata = {
@@ -10,7 +11,9 @@ export default function RootLayout({ children }) {
     <html lang="en" className="">
       <body className={"bg-[#03071E] text-white"}>
         <div className="h-full mt-5">
-          <div>{children}</div>
+        
+            <div>{children}</div>
+          
         </div>
       </body>
     </html>
