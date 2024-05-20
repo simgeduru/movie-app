@@ -1,20 +1,16 @@
-import React from 'react'
+'use client'
+import React, { useState } from "react";
 
-export default function MyPagination({pageSize}) {
-  let size = pageSize;
-  return (
-    <div>
+export default function MyPagination({ pages, handleClick }) {
+  
+  //console.log(pages);
 
-{/* {
-      for(let i=1; <size; i++ ){
-        {<button className='bg-red-900 opacity:100 rounded-full px-3 py-1 text-center items-center mb-10 hover:opacity-80'>1</button>}
-        
-      }
-    } */}
-       
-    
-    </div>
-    
-   
-  );
+ 
+  return <div className="space-x-2">{
+    pages.map((page, index) =>(
+
+      <button onClick={() =>{handleClick(page)}} className="text-sm bg-red-900 rounded-full text-center w-[25px] h-[25px]" key={index}>{page}</button>
+    ))
+
+    }</div>;
 }

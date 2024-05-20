@@ -7,15 +7,38 @@ import SearchBox from "../components/SearchBox";
 import Link from "next/link";
 import CircularProgress from "@mui/material/CircularProgress";
 import Background from "../components/Background";
-import MyPagination from '../components/MyPagination';
+import MyPagination from "../components/MyPagination";
 
 export default function Home() {
   const [movies, setMovies] = useState([]);
   const [genres, setGenres] = useState([]);
   const [genreItem, setGenreItem] = useState("");
   const [loading, setLoading] = useState(false);
+  const [pages, setpages] = useState([1]);
   let queryString = genreItem.toString();
-  const [pageSize, setPageSize] = useState(1);
+  const [currentPage, setCurrentPage] = useState();
+  const [pageElements, setPageElements] = useState([]);
+  const[test, setTest] = useState(false);
+
+  const handleClick = (page) => {
+    setCurrentPage(parseInt(page));
+    console.log(currentPage, "current page");
+    console.log(page);
+  };
+
+  useEffect(() => {
+    let arr = new Array();
+    let begin = (currentPage - 1) * 10 ;
+    let end = currentPage * 10;
+    console.log("movies pag", movies);
+    movies.map((movie, index) => {
+      if (index >= begin && index <= end) {
+        arr.push(movie);
+      }
+    });
+    setPageElements(arr);
+    console.log("çalıştı currentPage use effect");
+  }, [currentPage, test]);
 
   //fetching the movies
   useEffect(() => {
@@ -30,39 +53,43 @@ export default function Home() {
         })
         .then((response) => {
           if (response.status == 200) {
+            let pageArr = new Array();
             setMovies(response.data);
+            setTest(!test);
+            setCurrentPage(1);
+            const movieArr = response.data;
+            console.log(movieArr, "axios");
             setLoading(true);
-            paginationPageCal();
+            let size = parseInt(response.data.length / 10);
+           
+            size % 10 > 0 ? (size = size + 1) : (size = size);
+           
+            //array oluşturma işlemi
+            for (let i = 1; i <= size; i++) {
+              pageArr.push(i);
+            }
+            setpages([...pageArr]);
+            setCurrentPage(1);
+           
           }
         });
     };
     fetchWiaQuery();
   }, [genreItem]);
 
+
+ 
+
   //fetching the genres
   useEffect(() => {
     const fetchGenres = async () => {
       await axios.get("http://localhost:3000/genres").then((data) => {
         setGenres(data.data);
-        console.log(data.data);
+   
       });
     };
     fetchGenres();
   }, []);
-
-  const paginationPageCal = async () =>{
-    console.log(movies.length);
-    //sayfa sayısını belirleme
-    let size = Math.round((movies.length/10))+1 ;
-    console.log(size);
-    setPageSize(size);
-    var foo = [];
-
-    for (var i = 1; i <=pageSize; i++) {
-       foo.push(i);
-    }
-console.log(foo);
-  }
 
   return (
     <div>
@@ -90,7 +117,6 @@ console.log(foo);
                 onClick={() => {
                   setGenreItem(genre);
                   console.log("tıklandı");
-                  paginationPageCal();
                 }}
               >
                 {genre}
@@ -102,20 +128,24 @@ console.log(foo);
         )}
 
         {loading == true ? (
-          <div className=" mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 text-center place-items-center">
+          <div className="flex flex-col justify-center items-center">
             {movies.length > 0 ? (
               <>
-                
-                {movies.map((movie) => (
+              <div className=" mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 text-center place-items-center">
+                {pageElements.map((movie) => (
                   <Card key={movie.id} movie={movie}></Card>
                 ))}
-                {<MyPagination pageSize ={pageSize}></MyPagination>}
-                
+              </div>
+              <div className="mt-10 mb-10"> {<MyPagination pages={pages} handleClick={handleClick}></MyPagination>}</div>
               </>
             ) : (
               <p className="text-center">Bu kategoride film bulunmamaktadır.</p>
             )}
+
+
+      
           </div>
+          
         ) : (
           <div className="flex justify-center items-center h-[100vh]">
             {<CircularProgress />}
