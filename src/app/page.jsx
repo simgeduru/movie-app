@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import "./globals.css";
-import Card from "../components/Card";
+import {Card} from "../components/Card";
 import axios from "axios";
 import SearchBox from "../components/SearchBox";
 import Link from "next/link";
@@ -28,11 +28,11 @@ export default function Home() {
 
   useEffect(() => {
     let arr = new Array();
-    let begin = (currentPage - 1) * 10;
+    let begin = ((currentPage - 1) * 10);
     let end = currentPage * 10;
     console.log("movies pag", movies);
     movies.map((movie, index) => {
-      if (index >= begin && index <= end) {
+      if (index >= begin && index < end) {
         arr.push(movie);
       }
     });
@@ -60,9 +60,7 @@ export default function Home() {
             const movieArr = response.data;
             console.log(movieArr, "axios");
             setLoading(true);
-            let size = parseInt(response.data.length / 10);
-
-            size % 10 > 0 ? (size = size + 1) : (size = size);
+            let size = (Math.ceil((response.data.length / 10)));
 
             //array oluşturma işlemi
             for (let i = 1; i <= size; i++) {
@@ -70,6 +68,8 @@ export default function Home() {
             }
             setpages([...pageArr]);
             setCurrentPage(1);
+
+            console.log(size, "test");
           }
         });
     };
@@ -104,7 +104,7 @@ export default function Home() {
         {loading == true ? (
           <div
             id="genresScroll"
-            className=" overflow-x-scroll hover:overflow-x-scroll flex flex-row space-x-5 mt-5 md:mt-10"
+            className="justify-between text-xl lg:text-2xl 2xl: overflow-x-hidden hover:overflow-x-scroll flex flex-row space-x-5 lg:space-x-8 mt-5 md:mt-10"
           >
             {genres.map((genre, index) => (
               <button
@@ -126,18 +126,24 @@ export default function Home() {
           <div className="flex flex-col justify-center items-center">
             {movies.length > 0 ? (
               <>
-                <div className=" mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 text-center place-items-center">
+                <div className=" mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 lg:gap-24 gap-10 text-center place-items-center">
                   {pageElements.map((movie) => (
                     <Card key={movie.id} movie={movie}></Card>
                   ))}
                 </div>
                 <div className="mt-10 mb-10">
                   {
+                    <>
+                    {console.log("tekrar çalışyı")}
                     <MyPagination
+
+                    genre={genreItem}
                     size={pages.length}
                       pages={pages}
                       handleClick={handleClick}
+                      currentPage={currentPage}
                     ></MyPagination>
+                    </>
                   }
                 </div>
               </>

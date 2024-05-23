@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 
-export default function Card({ movie}) {
+export const  Card = ({ movie})=> {
   const [imageSrcExist, setImageSrcExist] = useState(true);
 
   const handleImageError = () => {
