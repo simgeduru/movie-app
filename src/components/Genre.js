@@ -1,8 +1,8 @@
 import React from "react";
 import { useState } from "react";
-import Link from 'next/link';
+import Link from "next/link";
 
-export default function Genre({movie}) {
+export default function Genre({ movie }) {
   const [imageSrcExist, setImageSrcExist] = useState(true);
 
   const handleError = () => {
