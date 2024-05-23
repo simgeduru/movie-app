@@ -13,7 +13,7 @@ function Search() {
   useEffect(() => {
     const fetchMovieWiaQuery = async () => {
       await fetch(
-        "http://localhost:3000/movies?" +
+        "https://movie-db-eight-bay.vercel.app/movies?" +
           new URLSearchParams({
             /* year:`${search}`, */
             title: `${search}`,

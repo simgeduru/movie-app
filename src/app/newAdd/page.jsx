@@ -1,18 +1,18 @@
 "use client";
 import React, { useState } from "react";
 import axios from "axios";
-import { useRouter } from 'next/navigation'
+import { useRouter } from "next/navigation";
 
 export default function Add() {
   const router = useRouter();
-  const [movie, setMovie] = useState(
-    {
-    id:"new",
+  const [movie, setMovie] = useState({
+    id: "new",
     title: "",
     year: "",
     runtime: "",
     plot: "",
-    posterUrl:"https://images-na.ssl-images-amazon.com/images/M/MV5BMTU5ODAyNzA4OV5BMl5BanBnXkFtZTcwNzYwNTIzNA@@._V1_SX300.jpg"
+    posterUrl:
+      "https://images-na.ssl-images-amazon.com/images/M/MV5BMTU5ODAyNzA4OV5BMl5BanBnXkFtZTcwNzYwNTIzNA@@._V1_SX300.jpg",
   });
 
   const Change = (evt) => {
@@ -25,10 +25,10 @@ export default function Add() {
     console.log(evt.target.value);
     console.log(movie);
   };
-  
+
   const AddObj = () => {
     const putData = async () => {
-      await axios.post("http://localhost:3000/movies", movie);
+      await axios.post("https://movie-db-eight-bay.vercel.app/movies", movie);
     };
     putData();
     console.log("eklendi");

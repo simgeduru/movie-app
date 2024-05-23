@@ -2,7 +2,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import "../../../app/globals.css";
-import Link from 'next/link'
+import Link from "next/link";
 
 export default function page({ params }) {
   const [movieID, setMovieID] = useState([]);
@@ -15,7 +15,7 @@ export default function page({ params }) {
   useEffect(() => {
     const fetchData = async () => {
       await axios
-        .get(`http://localhost:3000/movies/${params.id}`)
+        .get(`https://movie-db-eight-bay.vercel.app/movies/${params.id}`)
         .then((data) => {
           setMovieID(data.data);
         });

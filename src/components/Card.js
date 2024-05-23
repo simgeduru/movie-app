@@ -35,7 +35,7 @@ export const  Card = ({ movie})=> {
           className="invisible transition ease group-hover:-translate-y-5 duration-700 group-hover:visible absolute bottom-[8%] left-[5%] z-20 flex flex-col"
         >
           <h2 className="text-xl text-start text-[#dc2f02] pb-5">{movie.title}</h2>
-          <Link className="w-[70px] py-1 rounded-md bg-gray-500" href={`/movie/${movie.id}`}>Details</Link>
+          <Link className="w-[70px] py-1 rounded-md bg-gray-500" href={`https://movie-db-eight-bay.vercel.app/movies/${movie.id}`}>Details</Link>
         </div>
       </div>
     </div>

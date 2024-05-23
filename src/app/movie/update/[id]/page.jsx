@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useRouter } from 'next/navigation'
+import { useRouter } from "next/navigation";
 
 export default function Update({ params }) {
   const router = useRouter();
@@ -11,8 +11,8 @@ export default function Update({ params }) {
     year: "",
     runtime: "",
     genres: [],
-    director:"",
-    actors:"",
+    director: "",
+    actors: "",
     plot: "",
     posterUrl:
       "https://images-na.ssl-images-amazon.com/images/M/MV5BMTU5ODAyNzA4OV5BMl5BanBnXkFtZTcwNzYwNTIzNA@@._V1_SX300.jpg",
@@ -20,7 +20,7 @@ export default function Update({ params }) {
   useEffect(() => {
     const fetchDataWiaID = async () => {
       await axios
-        .get(`http://localhost:3000/movies/${params.id}`)
+        .get(`https://movie-db-eight-bay.vercel.app/movies/${params.id}`)
         .then((data) => {
           setMovie(data.data);
         });
@@ -43,7 +43,10 @@ export default function Update({ params }) {
 
   const AddObj = () => {
     const putData = async () => {
-      await axios.put(`http://localhost:3000/movies/${params.id}`, movie);
+      await axios.put(
+        `https://movie-db-eight-bay.vercel.app/movies/${params.id}`,
+        movie
+      );
     };
     putData();
     console.log("güncellendi");
