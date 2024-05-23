@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import "./globals.css";
-import {Card} from "../components/Card";
+import { Card } from "../components/Card";
 import axios from "axios";
 import SearchBox from "../components/SearchBox";
 import Link from "next/link";
@@ -28,7 +28,7 @@ export default function Home() {
 
   useEffect(() => {
     let arr = new Array();
-    let begin = ((currentPage - 1) * 10);
+    let begin = (currentPage - 1) * 10;
     let end = currentPage * 10;
     console.log("movies pag", movies);
     movies.map((movie, index) => {
@@ -48,7 +48,7 @@ export default function Home() {
       }
 
       await axios
-        .get("http://localhost:3000/movies", {
+        .get("https://movie-db-eight-bay.vercel.app/movies", {
           params: { genres: queryString },
         })
         .then((response) => {
@@ -60,7 +60,7 @@ export default function Home() {
             const movieArr = response.data;
             console.log(movieArr, "axios");
             setLoading(true);
-            let size = (Math.ceil((response.data.length / 10)));
+            let size = Math.ceil(response.data.length / 10);
 
             //array oluşturma işlemi
             for (let i = 1; i <= size; i++) {
@@ -79,10 +79,12 @@ export default function Home() {
   //fetching the genres
   useEffect(() => {
     const fetchGenres = async () => {
-      await axios.get("http://localhost:3000/genres").then((data) => {
-        console.log(data.data);
-        setGenres(data.data);
-      });
+      await axios
+        .get("https://movie-db-eight-bay.vercel.app/genres")
+        .then((data) => {
+          console.log(data.data);
+          setGenres(data.data);
+        });
     };
     fetchGenres();
   }, []);
@@ -135,15 +137,14 @@ export default function Home() {
                 <div className="mt-10 mb-10">
                   {
                     <>
-                    {console.log("tekrar çalışyı")}
-                    <MyPagination
-
-                    genre={genreItem}
-                    size={pages.length}
-                      pages={pages}
-                      handleClick={handleClick}
-                      currentPage={currentPage}
-                    ></MyPagination>
+                      {console.log("tekrar çalışyı")}
+                      <MyPagination
+                        genre={genreItem}
+                        size={pages.length}
+                        pages={pages}
+                        handleClick={handleClick}
+                        currentPage={currentPage}
+                      ></MyPagination>
                     </>
                   }
                 </div>
