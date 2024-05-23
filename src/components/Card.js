@@ -7,9 +7,7 @@ export const  Card = ({ movie})=> {
   const handleImageError = () => {
     setImageSrcExist(false);
   };
-  const handleClick = ()=>{
 
-  }
 
   return (
     <div className="">

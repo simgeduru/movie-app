@@ -12,10 +12,10 @@ import MyPagination from "../components/MyPagination";
 export default function Home() {
   const [movies, setMovies] = useState([]);
   const [genres, setGenres] = useState([]);
-  const [genreItem, setGenreItem] = useState("");
+  const [genreItem, setGenreItem] = useState({});
   const [loading, setLoading] = useState(false);
   const [pages, setpages] = useState([1]);
-  let queryString = genreItem.toString();
+  let queryString = genreItem.genre;
   const [currentPage, setCurrentPage] = useState();
   const [pageElements, setPageElements] = useState([]);
   const [test, setTest] = useState(false);
@@ -80,6 +80,7 @@ export default function Home() {
   useEffect(() => {
     const fetchGenres = async () => {
       await axios.get("http://localhost:3000/genres").then((data) => {
+        console.log(data.data);
         setGenres(data.data);
       });
     };
@@ -106,15 +107,15 @@ export default function Home() {
             id="genresScroll"
             className="justify-between text-xl lg:text-2xl 2xl: overflow-x-hidden hover:overflow-x-scroll flex flex-row space-x-5 lg:space-x-8 mt-5 md:mt-10"
           >
-            {genres.map((genre, index) => (
+            {genres.map((item, index) => (
               <button
                 key={index}
                 onClick={() => {
-                  setGenreItem(genre);
+                  setGenreItem(item);
                   console.log("tıklandı");
                 }}
               >
-                {genre}
+                {item.genre}
               </button>
             ))}
           </div>

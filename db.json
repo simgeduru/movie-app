@@ -1,37 +1,30 @@
 {
   "genres": [
-    "All",
-    "Action",
-    "Adventure",
-    "Animated",
-    "Biography",
-    "Comedy",
-    "Crime",
-
-    "Documentary",
-    "Drama",
-    "Family",
-    "Fantasy",
-
-    "Historical",
-    "Horror",
-    "Musical",
-    "Mystery",
-
-    "Political",
-    "Romance",
-
-    "Short",
-
-    "Sports",
-
-    "Superhero",
-
-    "Suspense",
-    "Teen",
-    "Thriller",
-    "War",
-    "Western"
+    { "genre": "All", "id": 1 },
+    { "genre": "Action", "id": 2 },
+    { "genre": "Adventure", "id": 3 },
+    { "genre": "Animated", "id": 4 },
+    { "genre": "Biography", "id": 5 },
+    { "genre": "Comedy", "id": 6 },
+    { "genre": "Crime", "id": 7 },
+    { "genre": "Documentary", "id": 8 },
+    { "genre": "Drama", "id": 9 },
+    { "genre": "Family", "id": 10 },
+    { "genre": "Fantasy", "id": 11 },
+    { "genre": "Historical", "id": 12 },
+    { "genre": "Horror", "id": 13 },
+    { "genre": "Musical", "id": 14 },
+    { "genre": "Mystery", "id": 15 },
+    { "genre": "Political", "id": 16 },
+    { "genre": "Romance", "id": 17 },
+    { "genre": "Short", "id": 18 },
+    { "genre": "Sports", "id": 19 },
+    { "genre": "Superhero", "id": 20 },
+    { "genre": "Suspense", "id": 21 },
+    { "genre": "Teen", "id": 22 },
+    { "genre": "Thriller", "id": 23 },
+    { "genre": "War", "id": 24 },
+    { "genre": "Western", "id": 25 }
   ],
   "movies": [
     {
