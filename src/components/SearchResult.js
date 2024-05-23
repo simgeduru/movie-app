@@ -6,7 +6,7 @@ export default function SearchResult({ Result }) {
   return (
     <li className="py-3 lg:py-5 pl-3 md:pl-8 w-2/3">
       {
-        <Link className="text-wrap w-full" href={`https://movie-db-eight-bay.vercel.app/movies/${Result.id}`}>
+        <Link className="text-wrap w-full" href={`https://effulgent-concha-769d37.netlify.app/movie/${Result.id}`}>
           {Result.title}
         </Link>
       }
